@@ -1,0 +1,247 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>EVE</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  
+  {% load static %}
+
+<link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/favicon.png' %}" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+
+  <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+</head>    
+<body>
+
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#" class="scrollto">eve</a></h1>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="user?id={{id}}">Home</a></li>
+          <li><a href="addmoney?id={{id}}">Add Money</a></li>
+          <li class="menu-active"><a href="bookride?id={{id}}">Book a Ride</a></li>
+          <li><a href="prides?id={{id}}">Past Rides</a></li>
+          <li><a href="reportissue?id={{id}}">Raise an issue</a></li>
+          <li><a href="preports?id={{id}}">Past Issues</a></li>
+          <li><a href="index">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  
+    <div class="intro-container">
+    
+
+<div style="min-height:100vh; display:flex; flex-direction:column; justify-content:space-between;">
+ 
+     <div>
+     
+   
+        <header style="margin-top:10%; text-align:center;">
+        
+        <h1>Ride Details</h1>
+        <table class="table table-dark" style="margin-top:5%;">
+          <thead>
+            <tr>
+              <th scope="col">vehid</th>
+              <th scope="col">start station</th>
+              <th scope="col">end station</th>
+              <th scope="col">expected hours</th>
+              <th scope="col">price</th>
+            </tr>
+          </thead>
+          <tbody>
+          
+            <tr>
+              <th scope="row">{{vehid}}</th>
+              <td>{{ststation}}</td>
+              <td>{{endstation}}</td>
+              <td>{{hours}}</td>
+              <td>{{price}}</td>
+            </tr>
+          </tbody>
+        </table>
+        
+         <h1>you are riding!!!</h1>
+         
+         <form method="post" action="stopride">
+         {% csrf_token %}
+         <input name="id" value="{{id}}" hidden>
+         <input name="rideid" value="{{rideid}}" hidden>
+         <input type="submit" class="btn btn-danger" name="endride" value="end Ride">
+         </form>
+         
+         <form method="post" action="trackride">
+         {% csrf_token %}
+         <input name="id" value="{{id}}" hidden>
+         <input name="rideid" value="{{rideid}}" hidden>
+         <input type="submit" id="trackride" class="btn btn-danger" name="trackride" value="View on Map">
+         </form>
+         
+         <button id="shareride" type="button" onclick="copyText()" class="btn btn-danger">Share Ride (copy to clipboard)</button>
+         
+         <button id="sos" type="button" onclick="sendsos()" class="btn btn-danger">SOS</button>
+         
+        </header>
+   
+    </div>
+ 
+ 
+     <footer id="footer">
+     <div class="container">
+       <div class="credits">
+           <br>
+         .. Designed by <a href="#">LC02-LB01-A</a> ..
+       </div>
+     </div>
+     </footer>
+     
+</div>
+
+</div>
+	
+	  
+	
+	  <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+      <script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+      <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+      <script src="{% static 'lib/superfish/hoverIntent.js' %}"></script>
+      <script src="{% static 'lib/superfish/superfish.min.js' %}"></script>
+      <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+      <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+      <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+      <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+      <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+      <script src="{% static 'lib/touchSwipe/jquery.touchSwipe.min.js' %}"></script>
+      <script src="{% static 'js/main.js' %}"></script>
+      
+      <script>
+        function copyText() {
+      
+            navigator.clipboard.writeText("http://"+location.host+"/rides/trackride?id={{id}}");
+        }
+        
+        async function sendsos() {
+            if (navigator.geolocation) {
+            console.log("yes location!!");
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    
+                    sossender(position.coords.latitude,position.coords.longitude);
+                    
+                    
+                }, function() {
+                });
+            }
+            
+            alert("an SOS alert has been sent. We are informing the paramedics team. To send SOS again, you can logout and login");
+            document.querySelector('#sos').disabled = true;
+            
+        }
+        
+        async function locservice(){
+            if (navigator.geolocation) {
+            console.log("yes location!!");
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    loc = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    }; 
+                    console.log(loc);
+                    
+                    updateloc(position.coords.latitude,position.coords.longitude);
+                    
+                    
+                }, function() {
+                    console.log("no loc!!");
+                    document.querySelector('#shareride').disabled = true;
+                    document.querySelector('#trackride').disabled = true;
+                    document.querySelector('#sos').disabled = true;
+                });
+            } else {
+                console.log("no location!!");
+                document.querySelector('#shareride').disabled = true;
+                document.querySelector('#trackride').disabled = true;
+                document.querySelector('#sos').disabled = true;
+                
+            } 
+        }
+        
+        function locToast(){
+            if (navigator.geolocation) {
+            console.log("yes location!!");
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    loc = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    }; 
+                    console.log(loc);
+                    
+                    
+                }, function() {
+                    console.log("no loc!!");
+                    alert("No location service found. cannot use share ride, track ride and sos features anymore. Please turn on location services to use this feature");
+                });
+            } else {
+                console.log("no location!!");
+                
+            } 
+        }
+        
+        
+        async function updateloc(lat, lon){
+            let formdata = new FormData();
+            formdata.set("lat",lat);
+            formdata.set("lon",lon);
+            formdata.set("id",{{id}});
+            
+            
+            let response = await fetch('updateloc', {
+              method: 'POST',
+              body: formdata
+            });
+        }
+        
+        async function sossender(lat, lon){
+            let formdata = new FormData();
+            formdata.set("lat",lat);
+            formdata.set("lon",lon);
+            formdata.set("id",{{id}});
+            
+            
+            let response = await fetch('sos', {
+              method: 'POST',
+              body: formdata
+            });
+        }
+        
+        var t=setInterval(locservice,5000);
+        locToast();
+             
+    </script>
+      
+      
+</body>
+</html>

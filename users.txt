@@ -1,0 +1,21 @@
+users:
+
+normal user:
+
+id: Mhill
+pass: mhill@123
+
+student:
+
+id: yasat
+pass: 1234
+
+operator:
+
+id: asmith
+pass: 1234
+
+manager:
+
+id: jd
+pass: 1234

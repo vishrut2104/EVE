@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>EVE</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  
+  {% load static %}
+
+<link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/favicon.png' %}" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+
+  <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>    
+<body>
+
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#" class="scrollto">eve</a></h1>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="user?id={{id}}">Home</a></li>
+          <li><a href="add?id={{id}}">Add</a></li>
+          <li><a href="vieworidesm?id={{id}}">Track rides</a></li>
+          <li class="menu-active"><a href="viewridesm?id={{id}}">View Rides</a></li>
+          <li><a href="vehicles?id={{id}}">Vehicles</a></li>
+          <li><a href="stations?id={{id}}">Stations</a></li>
+          <li><a href="viewreportsm?id={{id}}">View Reports</a></li>
+          <li><a href="allpendingreports?id={{id}}">View Pending Reports</a></li>
+          <li><a href="index">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+    <div class="intro-container">
+
+<div style="min-height:100vh; display:flex; flex-direction:column; justify-content:space-between;">
+ 
+     <div>
+   
+        <table class="table table-dark" style="margin-top:5%;">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">user id</th>
+              <th scope="col">Date of Booking</th>
+              <th scope="col">Start Station</th>
+              <th scope="col">End Station</th>
+              <th scope="col">Hours Rided</th>
+              <th scope="col">Spent</th>
+            </tr>
+          </thead>
+          <tbody>
+          
+          {% for a in rides %}
+            <tr>
+              <th scope="row">{{a.p_ride_id}}</th>
+              <td>{{a.uid}}</td>
+              <td>{{a.date_of_booking}}</td>
+              <td>{{a.start_station}}</td>
+              <td>{{a.end_station}}</td>
+              <td>{{a.hours_rided}}</td>
+              <td>{{a.price}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+   
+    </div>
+ 
+ 
+     <footer id="footer">
+     <div class="container">
+       <div class="credits">
+           <br>
+         .. Designed by <a href="#">LC02-LB01-A</a> ..
+       </div>
+     </div>
+     </footer>
+     
+</div>
+
+</div>
+	
+	  
+	
+	  <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+      <script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+      <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+      <script src="{% static 'lib/superfish/hoverIntent.js' %}"></script>
+      <script src="{% static 'lib/superfish/superfish.min.js' %}"></script>
+      <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+      <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+      <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+      <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+      <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+      <script src="{% static 'lib/touchSwipe/jquery.touchSwipe.min.js' %}"></script>
+      <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

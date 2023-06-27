@@ -1,0 +1,333 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>EVE</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  
+  {% load static %}
+
+<link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/favicon.png' %}" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+
+  <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/ionicons/css/ionicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">eve</a></h1>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="login">Login</a></li>
+          <li><a href="register">Register</a></li>
+          <li class="menu-active"><a href="#intro">Home</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#tieups">Tie ups</a></li>
+          <li><a href="#contact">Reach out</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="intro">
+  
+    <script>
+   var a = "{{error}}";
+   if(a.length > 5){
+   document.write("<div class='alert alert-danger alert-dismissible fade show fixed-top' role='alert' style='width:20%;left: 40%;top:3%;text-align:center;'><strong>Error!!</strong> "+a+"<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>");
+   }
+   var b = "{{message}}";
+   if(b.length > 5){
+   document.write("<div class='alert alert-success alert-dismissible fade show fixed-top' role='alert' style='width:20%;left: 40%;top:3%;text-align:center;'><strong>Yay!!</strong> "+b+"<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>");
+   }
+   </script>
+  
+    <div class="intro-container">
+      <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+
+        <ol class="carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <div class="carousel-item active">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/5.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>Welcome</h2>
+                <p>Rent a vehicle and pay as you go using our new wallet system. Report any issues and track them. Login now!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="carousel-background"><img src="{% static 'img/intro-carousel/6.jpg' %}" alt=""></div>
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2>Choose your ride</h2>
+                <p>Book your favourite vehicle from any location and drop the ride at any location within the city.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+
+        <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    
+    <section id="featured-services">
+      <div class="container">
+        <div class="row" align="center">
+
+          <div class="col-lg-6 box">
+            <h4 class="title"><a href="">New Vechicle Registration?</a></h4>
+            <p class="description">Request us for registration</p>
+          </div>
+
+          <div class="col-lg-6 box">
+            <h4 class="title"><a href="login.html">All Users</a></h4>
+            <p class="description">Login for all the services</p>
+          </div>
+
+         
+
+        </div>
+      </div>
+    </section>
+
+<br><br>
+    <section id="services">
+      <div class="container">
+        <header class="section-header wow fadeInUp">
+          <h3>Our Services</h3>
+          <p>We offer a wide range of services.</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
+            <h4 class="title"><a href="">Vehicle Types</a></h4>
+            <p class="description">Based on your license status, we have various types of vehicles you can choose from.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
+            <h4 class="title"><a href="">Student Discounts</a></h4>
+            <p class="description">Students can get upto 10% discount.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
+            <h4 class="title"><a href="">Share the ride</a></h4>
+            <p class="description">Share your ride details with your family and friends to live track.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
+            <h4 class="title"><a href="">SOS</a></h4>
+            <p class="description">In case of emergency, press SOS button to alert operator and send a message to your sos contact.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
+            <h4 class="title"><a href="">Report issues</a></h4>
+            <p class="description">Report issues with your last rided vehicle and track them.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
+            <h4 class="title"><a href="">Digial Wallet</a></h4>
+            <p class="description">Your personal digital wallet for hassle free rides.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+    <section id="call-to-action" class="wow fadeIn">
+      <div class="container text-center">
+        <h3>Not registered??</h3>
+        <p> <a href="register"> Click here </a> to register or login below</p>
+        <a class="cta-btn" href="login">Login</a>
+      </div>
+    </section>
+    <br><br>
+
+    <section id="tieups">
+      <div class="container">
+        <header class="section-header wow fadeInUp">
+          <h3>Tie ups</h3>
+          <p>We have patnered with various companies.</p>
+        </header>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-people-outline"></i></div>
+            <h4 class="title"><a href="">Eve Motors</a></h4>
+            <p class="description">Our parent company is the first partner for the vehicles.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-people-outline"></i></div>
+            <h4 class="title"><a href="">Googlr</a></h4>
+            <p class="description">Software and services provider</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-people-outline"></i></div>
+            <h4 class="title"><a href="">Googla</a></h4>
+            <p class="description">Software and services provider</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-people-outline"></i></div>
+            <h4 class="title"><a href="">Ratro Medicals</a></h4>
+            <p class="description">Emergency services provider</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-people-outline"></i></div>
+            <h4 class="title"><a href="">Paypalle</a></h4>
+            <p class="description">eWallet provider</p>
+          </div>
+          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+            <div class="icon"><i class="ion-ios-people-outline"></i></div>
+            <h4 class="title"><a href="">madrid co</a></h4>
+            <p class="description">Legal Advisors</p>
+          </div>
+
+        </div>
+
+        </div>
+    </section>
+    <section id="call-to-action" class="wow fadeIn">
+      <div class="container text-center">
+        <h3>Not registered??</h3>
+        <p> <a href="register"> Click here </a> to register or login below</p>
+        <a class="cta-btn" href="login">Login</a>
+      </div>
+    </section>
+
+    
+      
+
+    <section id="contact" class="section-bg wow fadeInUp">
+      <div class="container">
+
+        <div class="section-header">
+          <h3>Contact Us</h3>
+          <p>Any queries? please reach us out.</p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Address</h3>
+              <p><a href="https://goo.gl/maps/ieFrsf9YZN83mopc7">somewhere, University of Glasgow</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+44 778821749">+44 7788217491</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:contactus@eve.com">contactus@eve.com</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form">
+          <div id="sendmessage"></div>
+          <div id="errormessage"></div>
+          <form action="contactus" method="post" role="form" class="contactForm">
+          
+          {% csrf_token %}
+          
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+            <div class="text-center"><input type="submit" value="Send Message" name="messagesend"> </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer id="footer">
+    <div class="container">
+      <div class="credits">
+          <br>
+        .. Designed by <a href="#footer">LC02-LB01-A</a> ..
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'lib/jquery/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+  <script src="{% static 'lib/superfish/hoverIntent.js' %}"></script>
+  <script src="{% static 'lib/superfish/superfish.min.js' %}"></script>
+  <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+  <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+  <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+  <script src="{% static 'lib/touchSwipe/jquery.touchSwipe.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>  

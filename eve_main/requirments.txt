@@ -1,0 +1,5 @@
+mariadb
+geocoder
+pynput
+django
+matplotlib
